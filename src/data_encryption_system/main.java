@@ -5,6 +5,8 @@
  */
 package data_encryption_system;
 
+import Affan.SERVER;
+
 /**
  *
  * @author affan
