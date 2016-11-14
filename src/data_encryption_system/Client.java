@@ -8,6 +8,7 @@ package data_encryption_system;
 import Affan.AES;
 import Affan.CLIENT;
 import Affan.ChatBox;
+import java.awt.Toolkit;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,6 +28,7 @@ public class Client extends javax.swing.JFrame {
     public Client() throws IOException, Exception {
         initComponents();
         setSize(680, 400);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("icon0.png")));
         cb = new ChatBox("Server",jsp);
         client = new CLIENT("localhost",1030);
         client.Start();
