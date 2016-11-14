@@ -6,6 +6,7 @@
 package data_encryption_system;
 
 import Affan.SOUND;
+import java.awt.Toolkit;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,6 +24,7 @@ public class main extends javax.swing.JFrame {
      */
     public main() {
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("icon0.png")));
         setLocationRelativeTo(null);
     }
 
