@@ -8,11 +8,11 @@ package data_encryption_system;
 import Affan.AES;
 import Affan.CLIENT;
 import Affan.ChatBox;
+import Affan.UNSUPPORTED_USER_ERROR;
 import java.awt.Toolkit;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JScrollBar;
 
 /**
  *
@@ -137,9 +137,7 @@ public class Client extends javax.swing.JFrame {
             cb.addMessage(txt.getText(), ChatBox.LEFT_USER);
             client.Send(AES.encrypt(txt.getText()));
             txt.setText("");
-            JScrollBar sb = jsp.getVerticalScrollBar();
-            sb.setValue( sb.getMaximum() );
-        } catch (Exception ex) {
+        } catch (UNSUPPORTED_USER_ERROR | IOException ex) {
             Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -149,9 +147,7 @@ public class Client extends javax.swing.JFrame {
             cb.addMessage(txt.getText(), ChatBox.LEFT_USER);
             client.Send(AES.encrypt(txt.getText()));
             txt.setText("");
-            JScrollBar sb = jsp.getVerticalScrollBar();
-            sb.setValue( sb.getMaximum() );
-        } catch (Exception ex) {
+        } catch (UNSUPPORTED_USER_ERROR | IOException ex) {
             Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_txtActionPerformed
@@ -185,6 +181,7 @@ public class Client extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 try {
                     new Client().setVisible(true);
