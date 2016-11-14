@@ -50,22 +50,30 @@ public class Message_Receiver {
                 try{
                     switch (COMM_TYPE) {
                         case SERVER_COMM:
+                            SERVER s = (SERVER) comm_obj;
                             while(true){
-                                SERVER s = (SERVER) comm_obj;
-                                String message = AES.decrypt(s.Receive());
-                                if(message != null){
-                                    cb.addMessage(message,ChatBox.RIGHT_USER);
-                                    new SOUND().Notification();
+                                try{
+                                    String message = AES.decrypt(s.Receive());
+                                    if(message != null){
+                                        cb.addMessage(message,ChatBox.RIGHT_USER);
+                                        new SOUND().Notification();
+                                    }
+                                }catch(Exception e){
+                                    continue;
                                 }    
                             }
                         case CLIENT_COMM:
+                            CLIENT c = (CLIENT) comm_obj;
                             while(true){
-                                CLIENT s = (CLIENT) comm_obj;
-                                String message = AES.decrypt(s.Receive());
-                                if(message != null){
-                                    cb.addMessage(message,ChatBox.RIGHT_USER);
-                                    new SOUND().Notification();
-                                }                         
+                                try{
+                                    String message = AES.decrypt(c.Receive());
+                                    if(message != null){
+                                        cb.addMessage(message,ChatBox.RIGHT_USER);
+                                        new SOUND().Notification();
+                                    }
+                                }catch(Exception e){
+                                    continue;
+                                }    
                             }
                         default:
                             break;
