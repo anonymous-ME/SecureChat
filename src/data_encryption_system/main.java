@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,6 +20,8 @@ import javax.swing.JOptionPane;
  * @author affan
  */
 public class main extends javax.swing.JFrame {
+    final JOptionPane optionPane = new JOptionPane("Waiting for the client to join the secure chat server.", JOptionPane.INFORMATION_MESSAGE, JOptionPane.DEFAULT_OPTION, null, new Object[]{}, null);
+    final JDialog dialog = new JDialog();
     /**
      * Creates new form main
      */
@@ -60,7 +63,7 @@ public class main extends javax.swing.JFrame {
         usr.setBackground(new java.awt.Color(0, 102, 51));
         usr.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         usr.setForeground(new java.awt.Color(255, 255, 255));
-        usr.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Client", "Server" }));
+        usr.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Server", "Client" }));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data_encryption_system/logo.png"))); // NOI18N
 
@@ -153,7 +156,7 @@ public class main extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(pas.getText().equals("Affan98"))
             switch(usr.getSelectedIndex()){
-                case 0:
+                case 1:
                     try {
                         new Client().setVisible(true);     
                     } catch (Exception ex) {
@@ -161,13 +164,25 @@ public class main extends javax.swing.JFrame {
                     }
                     dispose();
                     break;
-                case 1:
+                case 0:
                     try {
-                        new Server().setVisible(true);
+                        this.setVisible(false);
+                        showWaiting();
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    new Server().setVisible(true);
+                                    dispose();
+                                    dialog.dispose();
+                                } catch (Exception ex) {
+                                    Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }).start();
                     } catch (Exception ex) {
                         Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    dispose();
                     break;
             }
         else{
@@ -176,14 +191,14 @@ public class main extends javax.swing.JFrame {
             } catch (IOException | LineUnavailableException | UnsupportedAudioFileException ex) {
                 Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
             }
-            JOptionPane.showMessageDialog(this, "WRONG PASSWORD", "Wrong Password!!", JOptionPane.WARNING_MESSAGE);        
+            JOptionPane.showMessageDialog(this, "WRONG PASSWORD", "Wrong Password!!", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void pasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasActionPerformed
         if(pas.getText().equals("Affan98"))
             switch(usr.getSelectedIndex()){
-                case 0:
+                case 1:
                     try {
                         new Client().setVisible(true);     
                     } catch (Exception ex) {
@@ -191,13 +206,25 @@ public class main extends javax.swing.JFrame {
                     }
                     dispose();
                     break;
-                case 1:
+                case 0:
                     try {
-                        new Server().setVisible(true);
+                        this.setVisible(false);
+                        showWaiting();
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    new Server().setVisible(true);
+                                    dispose();
+                                    dialog.dispose();
+                                } catch (Exception ex) {
+                                    Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }).start();
                     } catch (Exception ex) {
                         Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    dispose();
                     break;
             }
         else{
@@ -209,7 +236,16 @@ public class main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "WRONG PASSWORD", "Wrong Password!!", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_pasActionPerformed
-
+    void showWaiting(){
+        dialog.setTitle("WAITING");
+        dialog.setModal(false);
+        dialog.setAlwaysOnTop(true);
+        dialog.setContentPane(optionPane);
+        dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+        dialog.pack();
+        dialog.setLocationRelativeTo(null);
+        dialog.setVisible(true);
+    }
         
     /**
      * @param args the command line arguments
