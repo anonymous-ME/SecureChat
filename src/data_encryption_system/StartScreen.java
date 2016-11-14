@@ -60,6 +60,7 @@ public class StartScreen extends JWindow {
 
   public void showSplashAndExit() {
     showSplash();
+    setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("icon0.png")));
     dispose();
     new main().setVisible(true);
   }
