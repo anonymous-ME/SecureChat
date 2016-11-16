@@ -31,7 +31,7 @@ public class Server extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("icon0.png")));
         this.cb = new ChatBox("Client",jsp);
-        this.server = new SERVER("localhost",1030);
+        this.server = new SERVER(main.IP,1030);
         this.server.Start();
         new Message_Receiver(server,cb).Start(Message_Receiver.SERVER_COMM);
     }
