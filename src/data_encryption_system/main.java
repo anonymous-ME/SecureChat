@@ -20,6 +20,7 @@ import javax.swing.JOptionPane;
  * @author affan
  */
 public class main extends javax.swing.JFrame {
+    public static String IP;
     final JOptionPane optionPane = new JOptionPane("Waiting for the client to join the secure chat server.", JOptionPane.INFORMATION_MESSAGE, JOptionPane.DEFAULT_OPTION, null, new Object[]{}, null);
     final JDialog dialog = new JDialog();
     /**
@@ -47,6 +48,8 @@ public class main extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         pas = new javax.swing.JPasswordField();
+        jLabel5 = new javax.swing.JLabel();
+        ip = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SECURE CHAT LOGIN");
@@ -85,9 +88,17 @@ public class main extends javax.swing.JFrame {
         pas.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         pas.setForeground(new java.awt.Color(255, 255, 255));
         pas.setEchoChar('#');
-        pas.addActionListener(new java.awt.event.ActionListener() {
+
+        jLabel5.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel5.setText("Enter The Address :");
+
+        ip.setBackground(new java.awt.Color(0, 102, 51));
+        ip.setFont(new java.awt.Font("DejaVu Sans Mono", 1, 14)); // NOI18N
+        ip.setForeground(new java.awt.Color(255, 255, 255));
+        ip.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pasActionPerformed(evt);
+                ipActionPerformed(evt);
             }
         });
 
@@ -106,12 +117,16 @@ public class main extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(12, 12, 12)
-                                .addComponent(pas)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(ip, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)
+                                    .addComponent(pas))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -126,7 +141,11 @@ public class main extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(pas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(ip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
@@ -154,6 +173,7 @@ public class main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        IP = ip.getText();
         if(pas.getText().equals("Affan98"))
             switch(usr.getSelectedIndex()){
                 case 1:
@@ -195,7 +215,8 @@ public class main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void pasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasActionPerformed
+    private void ipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ipActionPerformed
+        IP = ip.getText();
         if(pas.getText().equals("Affan98"))
             switch(usr.getSelectedIndex()){
                 case 1:
@@ -235,7 +256,7 @@ public class main extends javax.swing.JFrame {
             }
             JOptionPane.showMessageDialog(this, "WRONG PASSWORD", "Wrong Password!!", JOptionPane.WARNING_MESSAGE);
         }
-    }//GEN-LAST:event_pasActionPerformed
+    }//GEN-LAST:event_ipActionPerformed
     void showWaiting(){
         dialog.setTitle("WAITING");
         dialog.setModal(false);
@@ -283,10 +304,12 @@ public class main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ip;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField pas;
     private javax.swing.JComboBox<String> usr;
