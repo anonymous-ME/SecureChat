@@ -1,8 +1,6 @@
 # Data Encryption System
 In this project we use the cryptography techniques for encryption and decryption of message. While transmitting packet from source to destination, encrypt packet and transmit the packet at the receiving side decryption is done using a key that is only available to the user. When there is any data hacking at the middle of the network it is not possible to decrypt the packet.
-![alt SECURE_CHA](https://raw.githubusercontent.com/anonymous-ME/Data-Encryption-System/master/src/data_encryption_system/logo.png?token=ARYFezYT6p10umXKx2WNnld_NXnip5HDks5YMJ0_wA%3D%3D)
-
-# Look And Feel (GUI)
+![alt SECURE_CHA](https://raw.githubusercontent.com/anonymous-ME/Data-Encryption-System/master/SCR/logo.png?token=ARYFe4JdCtt2mPRq6wvdNM20LVIv6rdWks5YNVhGwA%3D%3D)
 
 ##Loader
 ![alt SECURE_CHA](https://raw.githubusercontent.com/anonymous-ME/Data-Encryption-System/master/SCR/0.png?token=ARYFe_5E0j-HOLDzT8KoD18e8e2Uio85ks5YM0-jwA%3D%3D)
