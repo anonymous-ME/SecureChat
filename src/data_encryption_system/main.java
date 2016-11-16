@@ -208,7 +208,7 @@ public class main extends javax.swing.JFrame {
             } catch (IOException | LineUnavailableException | UnsupportedAudioFileException ex) {
                 Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
             }
-            JOptionPane.showMessageDialog(this, "WRONG PASSWORD", "Wrong Password!!", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Wrong Password!!", "WRONG PASSWORD", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -251,7 +251,7 @@ public class main extends javax.swing.JFrame {
             } catch (IOException | LineUnavailableException | UnsupportedAudioFileException ex) {
                 Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
             }
-            JOptionPane.showMessageDialog(this, "WRONG PASSWORD", "Wrong Password!!", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Wrong Password!!", "WRONG PASSWORD", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_ipActionPerformed
     void showWaiting(){
