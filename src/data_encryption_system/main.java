@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
  * @author affan
  */
 public class main extends javax.swing.JFrame {
-    public static String IP;
+    public static String IP = "localhost";
     final JOptionPane optionPane = new JOptionPane("Waiting for the client to join the secure chat server.", JOptionPane.INFORMATION_MESSAGE, JOptionPane.DEFAULT_OPTION, null, new Object[]{}, null);
     final JDialog dialog = new JDialog();
     /**
