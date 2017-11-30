@@ -8,5 +8,5 @@ In this project we use the cryptography techniques for encryption and decryption
 ## Login
 ![alt SECURE_CHA](SCR/1.png)
 
-##  Main Chat
+## Main Chat
 ![alt SECURE_CHA](SCR/2.png)
